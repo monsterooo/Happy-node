@@ -1,0 +1,17 @@
+{
+  "name": "bookshelf-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "example1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bookshelf": "^1.0.1",
+    "knex": "^0.20.4",
+    "pg": "^7.14.0"
+  }
+}

@@ -1,0 +1,8 @@
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+.DS_Store
+
+#Ignore node_modules
+node_modules/
