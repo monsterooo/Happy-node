@@ -1,7 +1,7 @@
 const express = require('express');
 const EventEmitter = require('events');
 const chalk = require('chalk');
-const loadCore = require('./core/load-core');
+const loadApi = require('./core/load-api');
 
 class Minke extends EventEmitter {
   constructor() {
@@ -11,6 +11,10 @@ class Minke extends EventEmitter {
     this.app = express();
     // 程序运行所在目录
     this.dir = process.cwd();
+    /**
+     * 保存程序中的 routes controllers models routes config
+     */
+    this.api = {};
   }
 
   async start(cb) {
@@ -24,7 +28,7 @@ class Minke extends EventEmitter {
     }
   }
   async load() {
-    const core = await loadCore(this);
+    const core = await loadApi(this);
   }
 }
 
