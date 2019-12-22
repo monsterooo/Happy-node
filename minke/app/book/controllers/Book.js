@@ -1,5 +1,6 @@
 module.exports = {
   find: async ctx => {
-    ctx && ctx.send('Hello, World!');
-  }
+    // ctx.send('Hello World!');
+    ctx.body = 'Hello World!'
+  },
 }

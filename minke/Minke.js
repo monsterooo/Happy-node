@@ -24,6 +24,11 @@ class Minke extends EventEmitter {
   async start(cb) {
     console.log('start')
     await this.load();
+    this.koa.use(this.router.routes()).use(this.router.allowedMethods());
+    this.server.listen(3000, async err => {
+      if (err) return log('监听端口错误');
+      log('开始监听端口3000');
+    })
   }
   async load() {
     const [ app, config, middleware ] = await Promise.all([
@@ -35,8 +40,8 @@ class Minke extends EventEmitter {
     this.app = app;
     this.middleware = middleware;
     await bootstrap(this);
+    log('config > ', this.config)
     initializeMiddlewares.call(this);
-    log('config > ', config)
   }
 }
 

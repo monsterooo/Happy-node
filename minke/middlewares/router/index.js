@@ -1,12 +1,13 @@
-
+const _ = require('lodash');
+const composeEndpoint = require('./utils/composeEndpoint');
 
 module.exports = minke => {
+  const composeRoute = composeEndpoint(minke);
   return {
-    beforeInitialize() {
-      log('middleware/router/index.js beforeInitialize')
-    },
     initialize() {
-      console.log('middleware/router/index.js initialize');
+      _.forEach(minke.config.routes, value => {
+        composeRoute(value, null, minke.router);
+      })
     }
   }
 }

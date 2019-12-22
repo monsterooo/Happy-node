@@ -3,7 +3,10 @@
     {
       "method": "GET",
       "path": "/books",
-      "handler": "Book.find"
+      "handler": "Book.find",
+      "config": {
+        "policies": ["global.isAuthenticated"]
+      }
     }
   ]
 }

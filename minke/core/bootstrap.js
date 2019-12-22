@@ -19,7 +19,15 @@ module.exports = minke => {
     },
     {}
   );
-
+  // 组装控制器
+  minke.controllers = Object.keys(minke.app || []).reduce((acc, key) => {
+    for(let index in minke.app[key].controllers) {
+      let controller = minke.app[key].controllers[index];
+      controller.indentity = controller.identity || _.upperFirst(index);
+      acc[index] = controller;
+    }
+    return acc;
+  }, {});
 }
 
 
