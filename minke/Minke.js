@@ -31,23 +31,25 @@ class Minke extends EventEmitter {
     })
   }
   async load() {
-    const [ app, config, middleware ] = await Promise.all([
+    const [ app, config, middleware, hook ] = await Promise.all([
       load.loadApp(this),
       load.loadConfigWrap(this),
       load.loadMiddleware(this),
+      load.loadHook(this),
     ]);
     _.merge(this.config, config);
     this.app = app;
+    this.hook = hook;
     this.middleware = middleware;
     await bootstrap(this);
-    log('config > ', this.config)
     initializeMiddlewares.call(this);
+    log('config ', this.config)
   }
 }
 
 module.exports = options => {
   const minke = new Minke(options);
-  global.minke = minke;
+  global.minke = minke; // 为全局对象保留minke对象实例
   return minke;
 }
 global.log = (...args) => {

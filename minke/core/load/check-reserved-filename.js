@@ -6,6 +6,7 @@ const envMinimatch = new minimatch.Minimatch('config/environments/*/+(request|re
 const filename = [
   'functions',
   'middleware',
+  'hook',
 ]
 module.exports = (file) => {
   if(envMinimatch.match(file)) return true;
