@@ -19,6 +19,15 @@ module.exports = minke => {
     },
     {}
   );
+  minke.config.hook.settings = Object.keys(minke.hook).reduce(
+    (acc, current) => {
+      const currentSettings = _.get(_.cloneDeep(minke.hook[current]), ['defaults', current]);
+      acc[current] = !_.isObject(currentSettings) ? {} : currentSettings;
+      _.defaults(acc[current], { enabled: false });
+      return acc;
+    },
+    {}
+  )
   // 组装控制器
   minke.controllers = Object.keys(minke.app || []).reduce((acc, key) => {
     for(let index in minke.app[key].controllers) {

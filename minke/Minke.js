@@ -6,6 +6,7 @@ const KoaRouter = require('koa-router');
 const load = require('./core/load');
 const bootstrap = require('./core/bootstrap');
 const initializeMiddlewares = require('./middlewares');
+const initializeHook = require('./hooks');
 
 class Minke extends EventEmitter {
   constructor({ dir } = {}) {
@@ -42,8 +43,9 @@ class Minke extends EventEmitter {
     this.hook = hook;
     this.middleware = middleware;
     await bootstrap(this);
-    initializeMiddlewares.call(this);
-    log('config ', this.config)
+    await initializeMiddlewares.call(this);
+    await initializeHook.call(this);
+    // log('config ', this.config)
   }
 }
 

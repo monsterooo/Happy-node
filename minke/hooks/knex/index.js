@@ -1,3 +1,3 @@
 module.exports = minke => {
-  log('knex hook > ', minke);
+  // log('knex hook > ', minke);
 }
