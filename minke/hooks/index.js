@@ -6,4 +6,5 @@ module.exports = async function() {
   const hookEnabled = key => _.get(hookConfig, ['settings', key, 'enabled'], false) === true;
   const enabledHook = Object.keys(this.hook).filter(hookEnabled);
   log(enabledHook)
+  log('test', enabledHook);
 }
