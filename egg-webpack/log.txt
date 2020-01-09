@@ -1,0 +1,15 @@
+
+> egg-webpack@1.0.0 dev /Users/createthink/Desktop/git/Happy-node/egg-webpack
+> egg-bin dev
+
+[egg-ts-helper] create typings/app/controller/index.d.ts (2ms)
+[egg-ts-helper] create typings/config/index.d.ts (52ms)
+[egg-ts-helper] create typings/config/plugin.d.ts (6ms)
+[egg-ts-helper] create typings/app/index.d.ts (3ms)
+2020-01-09 22:25:26,673 INFO 93428 [master] node version v12.14.0
+2020-01-09 22:25:26,673 INFO 93428 [master] egg version 2.26.0
+2020-01-09 22:25:27,940 INFO 93428 [master] agent_worker#1:93439 started (1262ms)
+2020-01-09 22:25:30,111 INFO 93428 [master] egg started on http://127.0.0.1:7001 (3438ms)
+2020-01-09 22:26:12,264 INFO 93428 [master] receive signal SIGINT, closing
+2020-01-09 22:26:12,265 INFO 93428 [master] send kill SIGTERM to app workers, will exit with code:0 after 1000ms
+2020-01-09 22:26:12,265 INFO 93428 [master] wait 1000ms

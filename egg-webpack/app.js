@@ -1,8 +1,22 @@
 'use strict';
 const koaWebpack = require('koa-webpack');
-const config = require('./webpack.config.js');
+const webpack = require('webpack');
+const configSource = require('./webpack.config.js');
 
-class AppHook {
+// koa-webpack参数结构
+const config = {
+  config: configSource,
+  devMiddleware: {
+    publicPath: configSource.output.publicPath,
+    // logLevel: 'silent',
+  },
+  hotClient: {
+    logLevel: 'silent',
+  },
+};
+config.compiler = webpack(configSource);
+
+class AppBootHook {
   constructor(app) {
     this.app = app;
   }
@@ -14,7 +28,9 @@ class AppHook {
   async didLoad() {
     // 所有的配置已经加载完毕
     // 可以用来加载应用自定义的文件，启动自定义的服务
-    const middleware = await koaWebpack({ config });
+    const middleware = await koaWebpack(config);
+    global.webpackMiddleware = middleware;
+    global.compiler = config.compiler;
     this.app.use(middleware);
   }
   async willReady() {
@@ -30,4 +46,4 @@ class AppHook {
   }
 }
 
-module.export = AppHook;
+module.exports = AppBootHook;
