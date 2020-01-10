@@ -1,4 +1,3 @@
-'use strict';
 const koaWebpack = require('koa-webpack');
 const webpack = require('webpack');
 const configSource = require('./webpack.config.js');
@@ -8,7 +7,7 @@ const config = {
   config: configSource,
   devMiddleware: {
     publicPath: configSource.output.publicPath,
-    // logLevel: 'silent',
+    logLevel: 'silent',
   },
   hotClient: {
     logLevel: 'silent',

@@ -1,7 +1,5 @@
 /* eslint valid-jsdoc: "off" */
 
-'use strict';
-
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -19,6 +17,13 @@ module.exports = appInfo => {
   config.middleware = [
     // 'html',
   ];
+
+  // ejs模板后缀映射成.html
+  config.view = {
+    mapping: {
+      '.html': 'ejs',
+    },
+  };
 
   // add your user config here
   const userConfig = {
