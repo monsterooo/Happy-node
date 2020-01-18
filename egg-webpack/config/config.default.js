@@ -24,6 +24,13 @@ module.exports = appInfo => {
       '.html': 'ejs',
     },
   };
+  config.io = {
+    namespace: {
+      '/': {
+        connectionMiddleware: [ 'connection' ],
+      },
+    },
+  };
 
   // add your user config here
   const userConfig = {

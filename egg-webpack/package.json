@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "egg-scripts start --daemon --title=egg-server-egg-webpack",
+    "start": "egg-scripts start --sticky --daemon --title=egg-server-egg-webpack",
     "stop": "egg-scripts stop --title=egg-server-egg-webpack",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
